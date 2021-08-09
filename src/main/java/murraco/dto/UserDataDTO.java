@@ -1,5 +1,6 @@
 package murraco.dto;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import io.swagger.annotations.ApiModelProperty;
@@ -14,7 +15,8 @@ public class UserDataDTO {
   @ApiModelProperty(position = 2)
   private String password;
   @ApiModelProperty(position = 3)
-  List<Role> roles;
+  List<Role> roles = new ArrayList<>();
+
 
   public String getUsername() {
     return username;

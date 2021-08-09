@@ -21,13 +21,13 @@ spring:
           new_generator_mappings: false
 
 server:
-   port: 8080 # This is the default port anyway, but you can change it here
+   port: 6677 # This is the default port anyway, but you can change it here
 
 security:
   jwt:
     token:
       secret-key: secret-key
-      expire-length: 300000 # 5 minutes duration by default: 5 minutes * 60 seconds * 1000 miliseconds
+      expire-length: 518400000
       
 UserController:
   signin: Authenticates user and returns its JWT token.
