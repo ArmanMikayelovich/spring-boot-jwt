@@ -5,6 +5,7 @@ import murraco.dto.UserDataDTO;
 import murraco.model.Role;
 import murraco.security.JwtTokenProvider;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,18 +21,24 @@ public class UserController {
     @Autowired
     private JwtTokenProvider jwtTokenProvider;
 
-    @GetMapping("/token")
-    public ResponseEntity<Map<String,String>> signup() {
+    @PostMapping("/token")
+    public ResponseEntity<Map<String,String>> signup(@RequestBody(required = true) String body) {
       UserDataDTO userDataDTO = new UserDataDTO();
       userDataDTO.setUsername("SUPER_ADMIN");
       userDataDTO.getRoles().add(Role.ROLE_ADMIN);
 
-        String token = jwtTokenProvider.createToken(userDataDTO.getUsername(), userDataDTO.getRoles());
-        HashMap<String, String> map = new HashMap<>();
-        map.put("token_type", "Bearer");
-        map.put("access_token", token);
+        if (body.contains("grant_type") && body.contains("client_id") && body.contains("client_secret")) {
 
-        return ResponseEntity.ok(map);
+            String token = jwtTokenProvider.createToken(userDataDTO.getUsername(), userDataDTO.getRoles());
+            HashMap<String, String> map = new HashMap<>();
+            map.put("token_type", "Bearer");
+            map.put("access_token", token);
+
+            return ResponseEntity.ok(map);
+        }else{
+            return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
+        }
+
 
     }
 
