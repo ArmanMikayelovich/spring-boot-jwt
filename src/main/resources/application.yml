@@ -1,7 +1,7 @@
 spring:
   datasource:
     url: jdbc:h2:mem:test_db;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
-    # url: jdbc:mysql://localhost:3306/user_db
+
     username: root
     password: root
   tomcat:
@@ -27,7 +27,7 @@ security:
   jwt:
     token:
       secret-key: secret-key
-      expire-length: 518400000
+      expire-length: 300000
       
 UserController:
   signin: Authenticates user and returns its JWT token.

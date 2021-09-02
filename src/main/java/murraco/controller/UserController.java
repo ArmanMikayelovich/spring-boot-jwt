@@ -5,7 +5,11 @@ import murraco.dto.UserDataDTO;
 import murraco.model.Role;
 import murraco.security.JwtTokenProvider;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.HashMap;
+import java.util.Map;
 
 @RestController
 @RequestMapping("")
@@ -17,11 +21,17 @@ public class UserController {
     private JwtTokenProvider jwtTokenProvider;
 
     @GetMapping("/token")
-    public String signup() {
+    public ResponseEntity<Map<String,String>> signup() {
       UserDataDTO userDataDTO = new UserDataDTO();
       userDataDTO.setUsername("SUPER_ADMIN");
       userDataDTO.getRoles().add(Role.ROLE_ADMIN);
-        return jwtTokenProvider.createToken(userDataDTO.getUsername(), userDataDTO.getRoles());
+
+        String token = jwtTokenProvider.createToken(userDataDTO.getUsername(), userDataDTO.getRoles());
+        HashMap<String, String> map = new HashMap<>();
+        map.put("token_type", "Bearer");
+        map.put("access_token", token);
+
+        return ResponseEntity.ok(map);
 
     }
 
