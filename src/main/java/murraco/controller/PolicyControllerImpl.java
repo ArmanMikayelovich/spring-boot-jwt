@@ -8,6 +8,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 /**
  * The type Policy controller.
  */
@@ -46,6 +49,17 @@ public class PolicyControllerImpl implements PolicyController {
         return ResponseEntity.ok("{\n" +
                 "  \"fullAddress\":\"" + testParam + "\"\n" +
                 "}");
+    }
+
+    @Override
+    @GetMapping("search-words")
+    public ResponseEntity searchWords(@RequestParam("word") String word) {
+
+        List<String> filtered = words.stream()
+                .filter(each -> each.contains(word))
+                .collect(Collectors.toList());
+
+        return ResponseEntity.ok(filtered);
     }
 
 }
