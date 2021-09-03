@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -45,7 +46,7 @@ public class PolicyControllerImpl implements PolicyController {
 
     @Override
     @GetMapping("/address")
-    public ResponseEntity address(@RequestParam String testParam ) {
+    public ResponseEntity address(@RequestParam String testParam) {
         return ResponseEntity.ok("{\n" +
                 "  \"fullAddress\":\"" + testParam + "\"\n" +
                 "}");
@@ -58,8 +59,9 @@ public class PolicyControllerImpl implements PolicyController {
         List<String> filtered = words.stream()
                 .filter(each -> each.contains(word))
                 .collect(Collectors.toList());
-
-        return ResponseEntity.ok(filtered);
+        HashMap<String, List<String>> objectObjectHashMap = new HashMap<>();
+        objectObjectHashMap.put("array", filtered);
+        return ResponseEntity.ok(objectObjectHashMap);
     }
 
 }
