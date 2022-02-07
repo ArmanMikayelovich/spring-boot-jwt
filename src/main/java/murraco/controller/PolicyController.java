@@ -525,9 +525,6 @@ public interface PolicyController {
     ResponseEntity renters();
 
 
-    ResponseEntity auto();
-
-
     ResponseEntity address(@RequestParam String testParam);
 
     @GetMapping("search-words")

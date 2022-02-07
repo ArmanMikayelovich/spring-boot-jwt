@@ -1,0 +1,265 @@
+[
+  {
+    "state": "AZ",
+    "agencyLocation": {
+      "agency": {
+        "agencyName": "COMMONWEALTH CASUALTY COMPANY",
+        "agencyCode": "001"
+      },
+      "mailingAddress": {
+        "streetAddress": "2500 N 24TH ST",
+        "city": "PHOENIX",
+        "state": "AZ",
+        "zipCode": "85008-1842"
+      },
+      "agencyLocationName": "azz001"
+    },
+    "coverages": [
+      {
+        "name": "Roadside Assistance",
+        "value": "Purchased"
+      }
+    ],
+    "policyNumber": "AZZ1",
+    "policyDate": "2021-03-03T08:13Z",
+    "effectiveDate": "2021-04-02T20:51Z",
+    "expirationDate": "2021-09-03T07:01Z",
+    "policyTerm": "6 Months",
+    "policyStatus": "Active",
+    "communication": {
+      "mailingAddress": {
+        "streetAddress": "3777 E MCDOWELL RD APT 1059",
+        "city": "PHOENIX",
+        "state": "AZ",
+        "zipCode": "85008-4349"
+      },
+      "homePhone": "6024022733",
+      "email": "test1@yahoo.com"
+    },
+    "insured": [
+      {
+        "firstName": "1",
+        "lastName": "test",
+        "dateOfBirth": "1999-11-10",
+        "relationship": "Insured",
+        "licenseNumber": "D10405584",
+        "martialStatus": "Single",
+        "licenseState": "AZ",
+        "gender": "Male",
+        "hasSr22Filing": false
+      }
+    ],
+    "properties": [
+      {
+        "coverages": [
+          {
+            "name": "Bodily Injury Liability",
+            "value": "$25,000 each person / $50,000 each accident"
+          },
+          {
+            "name": "Rental Reimbursement",
+            "value": "$20 / day up to 30 days"
+          },
+          {
+            "name": "Underinsured Motorist Bodily Injury",
+            "value": "$25,000 each person / $50,000 each accident"
+          },
+          {
+            "name": "Uninsured Motorist Bodily Injury",
+            "value": "$25,000 each person / $50,000 each accident"
+          },
+          {
+            "name": "Uninsured Motorist Property Damage",
+            "value": "$2,500 each accident"
+          }
+        ],
+        "address": {
+          "streetAddress": "Yerevan, James smith street ",
+          "city": "Yerevan",
+          "state": "AZ",
+          "zipCode": "85008-4349"
+        },
+        "year": 2014,
+        "make": "CHEVROLET",
+        "model": "CRUZE LS",
+        "style": "SEDAN 4 DOOR",
+        "vehicleUse": "Work (less than 20 miles)"
+      }
+    ],
+    "excludedDrivers": [
+    ],
+    "questions": [
+    ],
+    "timezone": "America/Phoenix"
+  },
+  {
+    "state": "CA",
+    "agencyLocation": {
+      "agency": {
+        "agencyName": "COMMONWEALTH CASUALTY COMPANY",
+        "agencyCode": "001"
+      },
+      "mailingAddress": {
+        "streetAddress": "2500 N 24TH ST",
+        "city": "PHOENIX",
+        "state": "AZ",
+        "zipCode": "85008-1842"
+      },
+      "agencyLocationName": "azz001"
+    },
+    "coverages": [
+      {
+        "name": "Roadside Assistance",
+        "value": "Purchased"
+      }
+    ],
+    "policyNumber": "AZZ2",
+    "policyDate": "2021-03-03T08:13Z",
+    "effectiveDate": "2021-04-02T20:51Z",
+    "expirationDate": "2021-09-03T07:01Z",
+    "policyTerm": "12 Months",
+    "policyStatus": "Active",
+    "communication": {
+      "mailingAddress": {
+        "streetAddress": "Test 2 address: Moon",
+        "city": "Moon",
+        "state": "CA",
+        "zipCode": "90011-1234"
+      },
+      "homePhone": "+37422111111",
+      "email": "test2@yahoo.com"
+    },
+    "insured": [
+      {
+        "firstName": "test2",
+        "lastName": "test2",
+        "dateOfBirth": "1969-11-10",
+        "relationship": "Insured",
+        "licenseNumber": "D10405584",
+        "martialStatus": "Single",
+        "licenseState": "CA",
+        "gender": "Male",
+        "hasSr22Filing": false
+      }
+    ],
+    "properties": [
+      {
+        "coverages": [
+          {
+            "name": "Bodily Injury Liability",
+            "value": "$25,000 each person / $50,000 each accident"
+          },
+          {
+            "name": "Rental Reimbursement",
+            "value": "$20 / day up to 30 days"
+          },
+          {
+            "name": "Underinsured Motorist Bodily Injury",
+            "value": "$25,000 each person / $50,000 each accident"
+          },
+          {
+            "name": "Uninsured Motorist Property Damage",
+            "value": "$2,500 each accident"
+          }
+        ],
+        "address": {
+          "streetAddress": "3777 E MCDOWELL RD APT 1059",
+          "city": "PHOENIX",
+          "state": "AZ",
+          "zipCode": "85008-4349"
+        },
+        "year": 2009,
+        "make": "BMW",
+        "model": "E93",
+        "style": "Coupe convertible",
+        "vehicleUse": "Active (more than 100 miles)"
+      }
+    ],
+    "excludedDrivers": [
+    ],
+    "questions": [
+    ],
+    "timezone": "America/Phoenix"
+  },
+  {
+    "state": "MA",
+    "agencyLocation": {
+      "agency": {
+        "agencyName": "COMMONWEALTH CASUALTY COMPANY",
+        "agencyCode": "001"
+      },
+      "mailingAddress": {
+        "streetAddress": "2500 N 24TH ST",
+        "city": "PHOENIX",
+        "state": "AZ",
+        "zipCode": "85008-1842"
+      },
+      "agencyLocationName": "azz001"
+    },
+    "coverages": [
+      {
+        "name": "coverage for test 3",
+        "value": "Purchased"
+      }
+    ],
+    "policyNumber": "AZZ3",
+    "policyDate": "2021-03-03T08:13Z",
+    "effectiveDate": "2021-04-02T20:51Z",
+    "expirationDate": "2021-09-03T07:01Z",
+    "policyTerm": "3 Months",
+    "policyStatus": "Active",
+    "communication": {
+      "mailingAddress": {
+        "streetAddress": "7751 E inch vor tex",
+        "city": "Enoqavan",
+        "state": "MA",
+        "zipCode": "02139-4349"
+      },
+      "homePhone": "7775062733",
+      "email": "test3@yahoo.com"
+    },
+    "insured": [
+      {
+        "firstName": "test3",
+        "lastName": "test3",
+        "dateOfBirth": "1949-10-11",
+        "relationship": "Insured",
+        "licenseNumber": "D10405584",
+        "martialStatus": "Single",
+        "licenseState": "AZ",
+        "gender": "Male",
+        "hasSr22Filing": false
+      }
+    ],
+    "properties": [
+      {
+        "coverages": [
+          {
+            "name": "Uninsured Motorist Bodily Injury",
+            "value": "$25,000 each person / $50,000 each accident"
+          },
+          {
+            "name": "Uninsured Motorist Property Damage",
+            "value": "$2,500 each accident"
+          }
+        ],
+        "address": {
+          "streetAddress": "7751 E inch vor tex",
+          "city": "Enoqavan",
+          "state": "MA",
+          "zipCode": "02139-4349"
+        },
+        "year": 2001,
+        "make": "OPEL",
+        "model": "ASTRA G",
+        "style": "SEDAN 4 DOOR",
+        "vehicleUse": "Work (less than 1 miles)"
+      }
+    ],
+    "excludedDrivers": [
+    ],
+    "questions": [
+    ],
+    "timezone": "America/Phoenix"
+  }
+]
