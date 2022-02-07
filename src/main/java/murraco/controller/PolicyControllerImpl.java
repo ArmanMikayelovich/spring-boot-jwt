@@ -39,7 +39,7 @@ public class PolicyControllerImpl implements PolicyController {
     @GetMapping(value = "auto",produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<ClaimModel>> getCountries(@RequestParam(value = "policyNumber", required = false) String policyNumber) {
 
-        if (policyNumber == null) {
+        if (policyNumber == null || policyNumber.equals("") || policyNumber.equalsIgnoreCase("all")) {
             return ResponseEntity.ok(getParsedClaims());
         }
 
