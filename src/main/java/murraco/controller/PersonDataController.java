@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpServletRequest;
 import java.io.InputStream;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -36,7 +37,7 @@ public class PersonDataController {
             @RequestParam(value = "fullName", required = false) String fullName,
             @RequestParam(value = "email", required = false) String email,
             @RequestParam(value = "phone", required = false) String phone,
-        @RequestParam(value = "address", required = false) String address) {
+            @RequestParam(value = "address", required = false) String address, HttpServletRequest request) {
 
         List<PersonData> list = getParsedPersons();
 
@@ -66,7 +67,7 @@ public class PersonDataController {
     }
 
     private List<PersonData> filterByStatus(List<PersonData> data,String status) {
-        return data.stream().filter(person -> person.getStatus().equalsIgnoreCase(status)).collect(Collectors.toList());
+        return data.stream().filter(person -> person.getStatus().toLowerCase(Locale.ROOT).contains(status.toLowerCase(Locale.ROOT))).collect(Collectors.toList());
     }
 
     private List<PersonData> filterByFullName(List<PersonData> data,String fullName) {
