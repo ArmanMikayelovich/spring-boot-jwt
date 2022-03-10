@@ -16,11 +16,11 @@ public class SaveApiController {
 
     @RequestMapping(value = "/post-data", method = {RequestMethod.POST, RequestMethod.PUT})
     public ResponseEntity<String> saveApiDate(@RequestBody String data, HttpServletRequest request) {
-        dataList.add(0, data);
         if (dataList.size() > 10) {
             List<String> strings = dataList.subList(9, dataList.size() - 1);
             dataList.removeAll(strings);
         }
+        dataList.add(0, data);
         return ResponseEntity.ok().build();
     }
 
