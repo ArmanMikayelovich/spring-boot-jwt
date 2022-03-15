@@ -47,6 +47,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             .antMatchers("/zip-codes").permitAll()//
             .antMatchers("/countries").permitAll()//
             .antMatchers("/h2-console/**/**").permitAll()
+            .antMatchers("/api/save/get-all").permitAll()
             // Disallow everything else..
             .anyRequest().authenticated();
 
