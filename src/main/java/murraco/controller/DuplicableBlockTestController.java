@@ -68,8 +68,8 @@ public class DuplicableBlockTestController {
                 carModel.getCountriesWhereTheCarWas().add(countries.get(rand.nextInt(13)));
                 carModel.getCountriesWhereTheCarWas().add(countries.get(rand.nextInt(13)));
 
-                carModel.setDescription(generateRandomString(rand));
-
+                carModel.setDescription(generateRandomString(rand,150));
+                carModel.setModel(generateRandomString(rand, 8));
                 carModel.setOnBoardComputer(rand.nextBoolean());
                 carModel.setGasEquipment(rand.nextBoolean());
                 carModel.setAudioSystem(rand.nextBoolean());
@@ -93,8 +93,7 @@ public class DuplicableBlockTestController {
     }
 
 
-    public String generateRandomString(Random random) {
-        int length = random.nextInt(150);
+    public String generateRandomString(Random random, int length) {
         int leftLimit = 97; // letter 'a'
         int rightLimit = 122; // letter 'z'
         StringBuilder buffer = new StringBuilder();
