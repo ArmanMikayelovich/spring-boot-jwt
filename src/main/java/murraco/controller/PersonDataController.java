@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletRequest;
 import java.io.InputStream;
 import java.util.*;
@@ -22,13 +23,16 @@ import java.util.stream.Collectors;
 @RequestMapping("/api/person-search")
 public class PersonDataController {
 
-    private static  List<PersonData> PARSED_PERSON_MODELS = new ArrayList<>();
-
+    private static List<PersonData> PARSED_PERSON_MODELS = new ArrayList<>();
 
 
     @Autowired
     private ResourceLoader resourceLoader;
 
+    @PostConstruct
+    public void init() {
+        getParsedPersons();
+    }
 
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<PersonData>> getPersonData(
@@ -62,40 +66,37 @@ public class PersonDataController {
         return ResponseEntity.ok(list);
     }
 
-    private List<PersonData> filterById(List<PersonData> data,String id) {
+    private List<PersonData> filterById(List<PersonData> data, String id) {
         return data.stream().filter(person -> person.getId().toLowerCase().contains(id.toLowerCase())).collect(Collectors.toList());
     }
 
-    private List<PersonData> filterByStatus(List<PersonData> data,String status) {
+    private List<PersonData> filterByStatus(List<PersonData> data, String status) {
         return data.stream().filter(person -> person.getStatus().toLowerCase(Locale.ROOT).contains(status.toLowerCase(Locale.ROOT))).collect(Collectors.toList());
     }
 
-    private List<PersonData> filterByFullName(List<PersonData> data,String fullName) {
+    private List<PersonData> filterByFullName(List<PersonData> data, String fullName) {
         return data.stream()
                 .filter(person -> person.getName().toLowerCase(Locale.ROOT).contains(fullName.toLowerCase(Locale.ROOT)))
                 .collect(Collectors.toList());
     }
 
-    private List<PersonData> filterByEmail(List<PersonData> data,String email) {
+    private List<PersonData> filterByEmail(List<PersonData> data, String email) {
         return data.stream()
                 .filter(person -> person.getEmail().toLowerCase(Locale.ROOT).contains(email.toLowerCase(Locale.ROOT)))
                 .collect(Collectors.toList());
     }
 
-    private List<PersonData> filterByPhone(List<PersonData> data,String phone) {
+    private List<PersonData> filterByPhone(List<PersonData> data, String phone) {
         return data.stream()
                 .filter(person -> person.getPhone().toLowerCase(Locale.ROOT).contains(phone.toLowerCase(Locale.ROOT)))
                 .collect(Collectors.toList());
     }
 
-    private List<PersonData> filterByAddress(List<PersonData> data,String address) {
+    private List<PersonData> filterByAddress(List<PersonData> data, String address) {
         return data.stream()
                 .filter(person -> person.getAddress().toLowerCase(Locale.ROOT).contains(address.toLowerCase(Locale.ROOT)))
                 .collect(Collectors.toList());
     }
-
-
-
 
 
     public List<PersonData> getParsedPersons() {
@@ -128,5 +129,7 @@ public class PersonDataController {
         return PARSED_PERSON_MODELS;
     }
 
-
+    public static List<PersonData> getParsedPersonModels() {
+        return PARSED_PERSON_MODELS;
+    }
 }
