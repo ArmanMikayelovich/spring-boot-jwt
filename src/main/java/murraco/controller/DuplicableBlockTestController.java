@@ -59,33 +59,27 @@ public class DuplicableBlockTestController {
 
         int startYear = 2000;
         for (int x = 0; x < 5; x++) {
-            for (int y= 0; y < rand.nextInt(5)+5; y++) {
+            for (int y= 0; y < 3; y++) {
                 CarModel carModel = new CarModel();
                 carModel.setYear(startYear+x);
-                carModel.setBrand(brands.get(rand.nextInt(3)));
+                carModel.setBrand(brands.get(y));
 
-                carModel.getCountriesWhereTheCarWas().add(countries.get(rand.nextInt(13)));
-                carModel.getCountriesWhereTheCarWas().add(countries.get(rand.nextInt(13)));
-                carModel.getCountriesWhereTheCarWas().add(countries.get(rand.nextInt(13)));
+                carModel.getCountriesWhereTheCarWas().add(countries.get(x+y));
+                carModel.getCountriesWhereTheCarWas().add(countries.get(x+y+1));
+                carModel.getCountriesWhereTheCarWas().add(countries.get(x+y+2));
 
-                carModel.setDescription(generateRandomString(rand,150));
-                carModel.setModel(generateRandomString(rand, 8));
-                carModel.setOnBoardComputer(rand.nextBoolean());
-                carModel.setGasEquipment(rand.nextBoolean());
-                carModel.setAudioSystem(rand.nextBoolean());
-                carModel.setAutoDrive(rand.nextBoolean());
+                carModel.setDescription("Description for model: " + (x+y+1));
+                carModel.setModel("model: " + (x+y+1));
+                carModel.setOnBoardComputer((x+y+1) % 2 ==0);
+                carModel.setGasEquipment((x+y+2) % 2 ==0);
+                carModel.setAudioSystem((x+y+3) % 2 ==0);
+                carModel.setAutoDrive((x+y+4) % 2 ==0);
 
-                int random1 = rand.nextInt(parsedPersonModels.size());
-                int random2 = rand.nextInt(parsedPersonModels.size());
-                int random3 = rand.nextInt(parsedPersonModels.size());
-                int random4 = rand.nextInt(parsedPersonModels.size());
-                int random5 = rand.nextInt(parsedPersonModels.size());
-
-                carModel.getDrivers().add(parsedPersonModels.get(random1));
-                carModel.getDrivers().add(parsedPersonModels.get(random2));
-                carModel.getDrivers().add(parsedPersonModels.get(random3));
-                carModel.getDrivers().add(parsedPersonModels.get(random4));
-                carModel.getDrivers().add(parsedPersonModels.get(random5));
+                carModel.getDrivers().add(parsedPersonModels.get(x+y));
+                carModel.getDrivers().add(parsedPersonModels.get(x+y+1));
+                carModel.getDrivers().add(parsedPersonModels.get(x+y+2));
+                carModel.getDrivers().add(parsedPersonModels.get(x+y+3));
+                carModel.getDrivers().add(parsedPersonModels.get(x+y+4));
                 carModels.add(carModel);
             }
         }
