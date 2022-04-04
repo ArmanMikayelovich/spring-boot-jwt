@@ -76,11 +76,11 @@ public class DuplicableBlockTestController {
                 carModel.setGasEquipment((x+y+2) % 2 ==0);
                 carModel.setAudioSystem((x+y+3) % 2 ==0);
                 carModel.setAutoDrive((x+y+4) % 2 ==0);
-
-                LocalDate usageStartDate = LocalDate.now().minusDays(x).plusMonths(y).minusYears(y);
+                LocalDate date = LocalDate.parse("2010-10-20");
+                LocalDate usageStartDate = date.minusDays(x).plusMonths(y).minusYears(y);
                 carModel.setUsageStartDate(usageStartDate);
-                carModel.setUsageEndDate(LocalDate.now().plusDays(x).plusMonths(y).plusYears(y));
-                carModel.setProductionTimeStamp(LocalDateTime.now().minusDays(x).plusMonths(y).minusYears(y).minusMinutes(x * 2).minusHours(y * 3));
+                carModel.setUsageEndDate(date.plusDays(x).plusMonths(y).plusYears((y+2)*2));
+                carModel.setProductionTimeStamp(date.atStartOfDay().minusDays(x).plusMonths(y).minusYears(y).minusMinutes(x * 2).minusHours(y * 3));
 
                 carModel.getDrivers().add(parsedPersonModels.get(x+y));
                 carModel.getDrivers().add(parsedPersonModels.get(x+y+1));
