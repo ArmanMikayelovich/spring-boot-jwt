@@ -1,8 +1,11 @@
 package murraco.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import murraco.model.person_data.PersonData;
 
 import java.io.Serializable;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,6 +32,13 @@ public class CarModel implements Serializable {
     private Boolean audioSystem;
 
     private Boolean autoDrive;
+
+    @JsonFormat(pattern="MM/dd/YYYY")
+    private LocalDate usageStartDate;
+    @JsonFormat(pattern="MM/dd/YYYY")
+    private LocalDate usageEndDate;
+    @JsonFormat(pattern="MM/dd/YYYY HH:mm:ss")
+    private LocalDateTime productionTimeStamp;
 
 
     private List<PersonData> drivers = new ArrayList<>();
@@ -212,5 +222,59 @@ public class CarModel implements Serializable {
      */
     public void setDrivers(List<PersonData> drivers) {
         this.drivers = drivers;
+    }
+
+    /**
+     * Gets usage start date.
+     *
+     * @return the usage start date
+     */
+    public LocalDate getUsageStartDate() {
+        return usageStartDate;
+    }
+
+    /**
+     * Sets usage start date.
+     *
+     * @param usageStartDate the usage start date
+     */
+    public void setUsageStartDate(LocalDate usageStartDate) {
+        this.usageStartDate = usageStartDate;
+    }
+
+    /**
+     * Gets usage end date.
+     *
+     * @return the usage end date
+     */
+    public LocalDate getUsageEndDate() {
+        return usageEndDate;
+    }
+
+    /**
+     * Sets usage end date.
+     *
+     * @param usageEndDate the usage end date
+     */
+    public void setUsageEndDate(LocalDate usageEndDate) {
+        this.usageEndDate = usageEndDate;
+    }
+
+    /**
+     * Gets production time stamp.
+     *
+     * @return the production time stamp
+     */
+    public LocalDateTime getProductionTimeStamp() {
+        return productionTimeStamp;
+    }
+
+    /**
+     * Sets production time stamp.
+     *
+     * @param productionTimeStamp the production time stamp
+     */
+    public void setProductionTimeStamp(LocalDateTime productionTimeStamp) {
+        this.productionTimeStamp = productionTimeStamp;
     }
 }

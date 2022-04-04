@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -74,6 +76,11 @@ public class DuplicableBlockTestController {
                 carModel.setGasEquipment((x+y+2) % 2 ==0);
                 carModel.setAudioSystem((x+y+3) % 2 ==0);
                 carModel.setAutoDrive((x+y+4) % 2 ==0);
+
+                LocalDate usageStartDate = LocalDate.now().minusDays(x).plusMonths(y).minusYears(y);
+                carModel.setUsageStartDate(usageStartDate);
+                carModel.setUsageEndDate(LocalDate.now().plusDays(x).plusMonths(y).plusYears(y));
+                carModel.setProductionTimeStamp(LocalDateTime.now().minusDays(x).plusMonths(y).minusYears(y).minusMinutes(x * 2).minusHours(y * 3));
 
                 carModel.getDrivers().add(parsedPersonModels.get(x+y));
                 carModel.getDrivers().add(parsedPersonModels.get(x+y+1));
