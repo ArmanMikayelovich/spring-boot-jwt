@@ -49,6 +49,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             .antMatchers("/h2-console/**/**").permitAll()
             .antMatchers("/api/save/get-all").permitAll()
             .antMatchers("/api/deep-json/**").permitAll()
+            .antMatchers("/api/auths/**").permitAll()
             // Disallow everything else..
             .anyRequest().authenticated();
 
