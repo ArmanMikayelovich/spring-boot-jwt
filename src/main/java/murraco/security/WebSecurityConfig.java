@@ -50,6 +50,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             .antMatchers("/api/save/get-all").permitAll()
             .antMatchers("/api/deep-json/**").permitAll()
             .antMatchers("/api/auths/**").permitAll()
+            .antMatchers("/api/person-search/**").permitAll()
             // Disallow everything else..
             .anyRequest().authenticated();
 

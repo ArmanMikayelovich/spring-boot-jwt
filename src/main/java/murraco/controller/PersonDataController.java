@@ -9,9 +9,7 @@ import org.springframework.core.io.ResourceLoader;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletRequest;
@@ -62,6 +60,33 @@ public class PersonDataController {
         }
         if (address != null) {
             list = filterByAddress(list, address);
+        }
+        return ResponseEntity.ok(list);
+    }
+
+    @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE, value = "/post-method")
+    public ResponseEntity<List<PersonData>> getPersonDataByPostMethod(
+            @RequestBody PersonData personData, HttpServletRequest request) {
+
+        List<PersonData> list = getParsedPersons();
+
+        if (personData.getId() != null) {
+            list = filterById(list, personData.getId());
+        }
+        if (personData.getStatus() != null) {
+            list = filterByStatus(list, personData.getStatus());
+        }
+        if (personData.getName() != null) {
+            list = filterByFullName(list, personData.getName());
+        }
+        if (personData.getEmail() != null) {
+            list = filterByEmail(list, personData.getEmail());
+        }
+        if (personData.getPhone() != null) {
+            list = filterByPhone(list, personData.getPhone());
+        }
+        if (personData.getAddress() != null) {
+            list = filterByAddress(list, personData.getAddress());
         }
         return ResponseEntity.ok(list);
     }
