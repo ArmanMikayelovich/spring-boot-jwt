@@ -149,6 +149,43 @@ public class PersonData implements Serializable {
     public void setAddress(String address) {
         this.address = address;
     }
+
+    /**
+     * Gets tags.
+     *
+     * @return the tags
+     */
+    public List<String> getTags() {
+        return tags;
+    }
+
+    /**
+     * Sets tags.
+     *
+     * @param tags the tags
+     */
+    public void setTags(List<String> tags) {
+        this.tags = tags;
+    }
+
+    /**
+     * Gets friends.
+     *
+     * @return the friends
+     */
+    public List<Friend> getFriends() {
+        return friends;
+    }
+
+    /**
+     * Sets friends.
+     *
+     * @param friends the friends
+     */
+    public void setFriends(List<Friend> friends) {
+        this.friends = friends;
+    }
+
     private static class Friend {
         private Integer id;
         private String name;
