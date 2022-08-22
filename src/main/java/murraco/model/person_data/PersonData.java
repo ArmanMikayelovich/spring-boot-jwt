@@ -1,6 +1,7 @@
 package murraco.model.person_data;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * The type Person data.
@@ -13,6 +14,15 @@ public class PersonData implements Serializable {
     private String email;
     private String phone;
     private String address;
+    private List<String> tags;
+
+    /**
+     * Gets id.
+     *
+     * @return the id
+     */
+    private List<Friend> friends;
+
 
     /**
      * Gets id.
@@ -138,5 +148,45 @@ public class PersonData implements Serializable {
      */
     public void setAddress(String address) {
         this.address = address;
+    }
+    private static class Friend {
+        private Integer id;
+        private String name;
+
+        /**
+         * Gets id.
+         *
+         * @return the id
+         */
+        public Integer getId() {
+            return id;
+        }
+
+        /**
+         * Sets id.
+         *
+         * @param id the id
+         */
+        public void setId(Integer id) {
+            this.id = id;
+        }
+
+        /**
+         * Gets name.
+         *
+         * @return the name
+         */
+        public String getName() {
+            return name;
+        }
+
+        /**
+         * Sets name.
+         *
+         * @param name the name
+         */
+        public void setName(String name) {
+            this.name = name;
+        }
     }
 }
